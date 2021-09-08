@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  comments:
+    build: ./comments
+    ports:
+      - "4201:4201"
+
+  payment:
+    build: ./payment
+    ports: 
+      - "4207:4207"
+
+  cart:
+    build: ./cart
+    ports: 
+      - "4206:4206"
+
+  auth:
+    build: ./auth
+    ports: 
+      - "4208:4208"
+
+  posts:
+    build: ./posts
+    ports: 
+      - "4200:4200"

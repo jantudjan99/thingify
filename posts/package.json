@@ -1,0 +1,26 @@
+{
+  "name": "posts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "postService.js",
+  "scripts": {
+    "serve": "nodemon --exec babel-node postService.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/mongodb": "^4.0.7",
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/node": "^7.14.9",
+    "@babel/preset-env": "^7.15.0",
+    "mongodb": "^3.6.11",
+    "nodemon": "^2.0.12"
+  }
+}
