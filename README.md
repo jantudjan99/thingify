@@ -1,9 +1,8 @@
 Završni rad - Aplikacija Thingify
 
-Tema: Implementacija backenda za web shop u mikroservisnoj arhitekturi
-
 Fakultet informatike u Puli: https://fipu.unipu.hr/
 
+Tema: Implementacija backenda za web shop u mikroservisnoj arhitekturi
 
 Student: Jan Tuđan
 
