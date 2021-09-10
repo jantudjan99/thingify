@@ -1,6 +1,6 @@
-**Implementacija backenda za web shop u mikroservisnoj arhitekturi**
+Završni rad Autor: Jan Tuđan
 
-Završni rad Autor - Jan Tuđan
+Tema: Implementacija backenda za web shop u mikroservisnoj arhitekturi
 
 Mentor: doc. dr. sc. Nikola Tanković (ntankovic.unipu.hr)
 
