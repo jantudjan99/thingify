@@ -1,4 +1,4 @@
-#Završni rad - Aplikacija Thingify
+Završni rad - Aplikacija Thingify
 
 Tema: Implementacija backenda za web shop u mikroservisnoj arhitekturi
 
