@@ -2,6 +2,9 @@ Završni rad - Aplikacija Thingify
 
 Tema: Implementacija backenda za web shop u mikroservisnoj arhitekturi
 
+Fakultet informatike u Puli: https://fipu.unipu.hr/
+
+
 Student: Jan Tuđan
 
 Mentor: doc. dr. sc. Nikola Tanković (ntankovic.unipu.hr)
