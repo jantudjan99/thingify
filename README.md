@@ -1,4 +1,4 @@
-                                                        **Implementacija backenda za web shop u mikroservisnoj arhitekturi**
+**Implementacija backenda za web shop u mikroservisnoj arhitekturi**
 
 Završni rad Autor - Jan Tuđan
 
