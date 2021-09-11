@@ -2,7 +2,7 @@ FROM node:14
 
 WORKDIR /app
 
-RUN  npm install @babel/core @babel/node @babel/preset-env nodemon express axios cors mongodb
+RUN  npm install @babel/core @babel/node @babel/preset-env nodemon express axios cors mongodb dotenv
 
 COPY . .
 

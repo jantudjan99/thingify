@@ -1,8 +1,11 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express from 'express';
 import connect from './db.js';
 import cors from 'cors';
-import mongo from 'mongodb'
-import axios from 'axios'
+import mongo from 'mongodb';
+import axios from 'axios';
 
 
 const app = express();
@@ -56,7 +59,7 @@ app.get ('/productComments/:title', async (req , res) => {
 
     const doc = await db.collection("posts").findOne({title: title});
 
-    let comments  = await axios.get("http://192.168.1.5:4201/comments");
+    let comments  = await axios.get(process.env.ADDRESS_ENV_POSTS + ":4201/comments"); //spremanje privatne IP adrese u environment kako adresa nebi bila vidljiva
 
     const singleProductComment = await comments.data.filter((comment) => comment.postID == doc._id);
 

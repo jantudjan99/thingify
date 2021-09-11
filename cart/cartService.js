@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express, { json } from 'express';
 import connect from './db.js';
 import cors from 'cors';
@@ -25,7 +28,7 @@ app.post("/add-to-cart/:id", async (req, res) => {
   try {
       const id = req.params.id;
       
-      const { data }  = await axios.get("http://192.168.1.5:4200/products");
+      const { data }  = await axios.get(process.env.ADDRESS_ENV_CART + ":4200/products"); //spremanje privatne IP adrese u environment kako adresa nebi bila vidljiva
 
       const singleProduct = await data.find((product) => product._id === id);
 
