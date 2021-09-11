@@ -39,7 +39,7 @@ app.get("/payment/:email", async (req, res) => {
     //Traži se korisnik, ako se podudaraju uneseni podaci u procesu plaćanja moguće je vidjeti sve podatke o plaćanju, koliko je proizvoda i koja je cijena
     let email = req.params.email;
     let db = await connect();
-    let userResponse = await axios.get(`http://localhost:4208/allUsers`); //Dobivanje svih registriranih korisnika iz servisa authService
+    let userResponse = await axios.get(`http://192.168.1.5:4208/allUsers`); //Dobivanje svih registriranih korisnika iz servisa authService
 
     //Traži se da li email unesenog korisnika postoji
     let filterUser = await userResponse.data.find((user) => user.email == email)
@@ -53,7 +53,7 @@ app.get("/payment/:email", async (req, res) => {
     console.log("req data: ",reqData)
 
     
-    let cartResponse = await axios.get('http://localhost:4206/cart')  //Dobivanje servisa gdje su spremljene sve unesene košarice
+    let cartResponse = await axios.get('http://192.168.1.5:4206/cart')  //Dobivanje servisa gdje su spremljene sve unesene košarice
     let filterCart = await cartResponse.data.find((cart) => cart.totalQty == reqData.totalQty) //Upit da li se količina podudara s onom koja je u servisu cart već dodana u košaricu
 
     console.log("Filtrirani cart: ", filterCart)

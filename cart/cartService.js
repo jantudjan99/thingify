@@ -25,7 +25,7 @@ app.post("/add-to-cart/:id", async (req, res) => {
   try {
       const id = req.params.id;
       
-      const { data }  = await axios.get("http://localhost:4200/products");
+      const { data }  = await axios.get("http://192.168.1.5:4200/products");
 
       const singleProduct = await data.find((product) => product._id === id);
 

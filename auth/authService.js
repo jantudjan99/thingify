@@ -31,27 +31,6 @@ app.post('/users', async (req, res) => {
     
 });
 
-app.post('/userComment', async (req, res) =>{
-    let user = req.body;
-    console.log(user)
-    res.json(user);    
-
-    let result = await axios.post("http://localhost:4201/userComments", user);
-    console.log(result)
-    /*if (result.insertedCount == 1) {
-        res.send({
-            status: 'success',
-            id: result.insertedId,
-        });
-    } 
-    else {
-        res.send({
-            status: 'fail',
-        });
-    }*/
-
-})
-
 app.post('/auth', async (req,res) => {
     let user = req.body;
 

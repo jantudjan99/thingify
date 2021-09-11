@@ -4,23 +4,42 @@ services:
     build: ./comments
     ports:
       - "4201:4201"
+    networks:
+      - mynetwork
 
   payment:
     build: ./payment
     ports: 
       - "4207:4207"
+    links:
+      - auth
+      - cart
+    networks:
+      - mynetwork
 
   cart:
     build: ./cart
     ports: 
       - "4206:4206"
+    links:
+      - posts
+    networks:
+      - mynetwork
 
   auth:
     build: ./auth
     ports: 
       - "4208:4208"
+    networks:
+      - mynetwork
 
   posts:
     build: ./posts
     ports: 
       - "4200:4200"
+    links:
+      - comments
+    networks:
+      - mynetwork
+networks:
+  mynetwork:

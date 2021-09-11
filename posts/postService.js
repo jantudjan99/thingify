@@ -56,7 +56,7 @@ app.get ('/productComments/:title', async (req , res) => {
 
     const doc = await db.collection("posts").findOne({title: title});
 
-    let comments  = await axios.get("http://localhost:4201/comments");
+    let comments  = await axios.get("http://192.168.1.5:4201/comments");
 
     const singleProductComment = await comments.data.filter((comment) => comment.postID == doc._id);
 
