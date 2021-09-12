@@ -39,32 +39,37 @@ app.post("/payment", async (req, res) => {
 
 app.get("/payment/:email", async (req, res) => {
     
-    //Traži se korisnik, ako se podudaraju uneseni podaci u procesu plaćanja moguće je vidjeti sve podatke o plaćanju, koliko je proizvoda i koja je cijena
-    let email = req.params.email;
-    let db = await connect();
-    let userResponse = await axios.get(process.env.ADDRESS_ENV_PAYMENT + ':4208/allUsers'); //Dobivanje svih registriranih korisnika iz servisa authService, adresu stavljamo u .env da ne bude vidljiva svima
+    try{
+        //Traži se korisnik, ako se podudaraju uneseni podaci u procesu plaćanja moguće je vidjeti sve podatke o plaćanju, koliko je proizvoda i koja je cijena
+        let email = req.params.email;
+        let db = await connect();
+        let userResponse = await axios.get(process.env.ADDRESS_ENV_PAYMENT + ':4208/allUsers'); //Dobivanje svih registriranih korisnika iz servisa authService, adresu stavljamo u .env da ne bude vidljiva svima
 
-    //Traži se da li email unesenog korisnika postoji
-    let filterUser = await userResponse.data.find((user) => user.email == email)
-    let userEmail = filterUser.email;
-    let userPhoneNumb = filterUser.phoneNumb
-    console.log(userEmail, userPhoneNumb)
+        //Traži se da li email unesenog korisnika postoji
+        let filterUser = await userResponse.data.find((user) => user.email == email)
+        let userEmail = filterUser.email;
+        let userPhoneNumb = filterUser.phoneNumb
+        console.log(userEmail, userPhoneNumb)
 
-    
-    let reqData =  await db.collection('payment').findOne({userEmail: userEmail}); //Pretraga da li postoji registrirani korisnik po emailu
-    
-    console.log("req data: ",reqData)
+        
+        let reqData =  await db.collection('payment').findOne({userEmail: userEmail}); //Pretraga da li postoji registrirani korisnik po emailu
+        
+        console.log("req data: ",reqData)
 
-    
-    let cartResponse = await axios.get(process.env.ADDRESS_ENV_PAYMENT + ':4206/cart')  //Dobivanje servisa gdje su spremljene sve unesene košarice
-    let filterCart = await cartResponse.data.find((cart) => cart.totalQty == reqData.totalQty) //Upit da li se količina podudara s onom koja je u servisu cart već dodana u košaricu
+        
+        let cartResponse = await axios.get(process.env.ADDRESS_ENV_PAYMENT + ':4206/cart')  //Dobivanje servisa gdje su spremljene sve unesene košarice
+        let filterCart = await cartResponse.data.find((cart) => cart.totalQty == reqData.totalQty) //Upit da li se količina podudara s onom koja je u servisu cart već dodana u košaricu
 
-    console.log("Filtrirani cart: ", filterCart)
+        console.log("Filtrirani cart: ", filterCart)
 
-    let cartTotalQty = filterCart.totalQty;
-    let cartTotalPrice = filterCart.totalPrice; 
+        let cartTotalQty = filterCart.totalQty;
+        let cartTotalPrice = filterCart.totalPrice; 
 
-    let Data = {userEmail, userPhoneNumb, cartTotalQty, cartTotalPrice} //Spajanje svih property-ja u objekt Data
-    res.send(Data);
+        let Data = {userEmail, userPhoneNumb, cartTotalQty, cartTotalPrice} //Spajanje svih property-ja u objekt Data
+        res.send(Data);
+    }
+    catch(error){
+        console.error(error);
+    }
 });
 
