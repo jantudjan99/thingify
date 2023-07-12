@@ -1,8 +1,10 @@
-Završni rad Autor: Jan Tuđan
+Autor: Jan Tuđan
 
-Tema: Implementacija backenda za web shop u mikroservisnoj arhitekturi
+Tema: Uravnoteživanje usluga
 
 Mentor: doc. dr. sc. Nikola Tanković (ntankovic.unipu.hr)
+
+Kolegij: Izrada informatičkih projekata
 
 Fakultet informatike u Puli: https://fipu.unipu.hr/
 
